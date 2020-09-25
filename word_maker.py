@@ -6,14 +6,18 @@ from nltk.util import bigrams, trigrams
 import codecs
 from collections import defaultdict
 import random
-filename = 'illiad.txt'
+
+# filename = 'illiad.txt'
+# filename = 'Anzengruber.txt'
+filename = 'donquixote.txt'
+
 f = codecs.open(filename, encoding='utf8')
 
 lines = f.readlines()
 all_text = ' '.join(lines).lower()
 
 # tokenize each sentence and only include letters (regex word chacacters)
-tokenizer = RegexpTokenizer('[a-z]+')
+tokenizer = RegexpTokenizer('[a-züßäöáéíóúñ]+')
 tokens = tokenizer.tokenize(all_text)
 
 # print(tokens)
@@ -109,7 +113,6 @@ if __name__ == '__main__':
     n = 3
     # generate prob dict only once and pass it into each word generation
     ngrams = generate_prob_dict(n)
-    print([starting_ngram(n, ngrams) for i in range(100)])
     print(f'Generating {tests} test words from file "{filename}" using {n}-gram model:')
     for i in range(tests):
         print(prettify(make_word(n, ngrams = ngrams)))
