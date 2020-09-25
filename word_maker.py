@@ -7,9 +7,9 @@ import codecs
 from collections import defaultdict
 import random
 
-# filename = 'illiad.txt'
+filename = 'illiad.txt'
 # filename = 'Anzengruber.txt'
-filename = 'donquixote.txt'
+# filename = 'donquixote.txt'
 
 f = codecs.open(filename, encoding='utf8')
 
